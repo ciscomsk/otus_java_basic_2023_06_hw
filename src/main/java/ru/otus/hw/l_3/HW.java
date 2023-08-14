@@ -39,7 +39,7 @@ public class HW {
 
     public static int getMethodNumber() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter method number: ");
+        System.out.println("Enter method number - from 1 to 5 inclusive: ");
         return sc.nextInt();
     }
 
