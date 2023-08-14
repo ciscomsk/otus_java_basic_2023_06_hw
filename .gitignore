@@ -1,0 +1,6 @@
+### Common ###
+target/
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
