@@ -121,8 +121,10 @@ public class HW {
         }
 
         if (element == MatrixElements.COLUMN) {
-            if (arr.length < 1) {
-                return -1;
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i].length < 2) {
+                    return -1;
+                }
             }
 
             int xCoord = 1;
