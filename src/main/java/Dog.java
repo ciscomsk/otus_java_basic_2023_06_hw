@@ -1,4 +1,4 @@
-public class Dog extends Animal implements CanSwim {
+public class Dog extends Animal implements Swimmable {
     private static final int ENDURANCE_LOSS_SWIM = 2;
     private int swimSpeed;
     public Dog(String name, int endurance, int runSpeed, int swimSpeed, AnimalState state) {
