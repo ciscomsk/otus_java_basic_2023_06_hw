@@ -17,5 +17,9 @@ public class App {
         }
 
         System.out.println(plate.getCurrentAmount());
+        plate.fill(10);
+        System.out.println(plate.getCurrentAmount());
+        plate.fill(50);
+        System.out.println(plate.getCurrentAmount());
     }
 }

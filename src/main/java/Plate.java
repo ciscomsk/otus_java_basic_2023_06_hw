@@ -11,8 +11,12 @@ public class Plate {
         return currentAmount;
     }
 
-    public void fill() {
-        currentAmount = capacity;
+    public void fill(int amount) {
+        if (currentAmount + amount > capacity) {
+            currentAmount = capacity;
+        } else {
+            currentAmount += amount;
+        }
     }
 
     public boolean reduceAmount(int units) {
