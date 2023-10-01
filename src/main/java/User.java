@@ -1,6 +1,5 @@
-public class User {
+public class User implements Movable {
     private String name;
-
     private int endurance;
     private Movable transport;
 
@@ -14,6 +13,22 @@ public class User {
         return name;
     }
 
+    public int getEndurance() {
+        return endurance;
+    }
+
+    public void setEndurance(int endurance) {
+        this.endurance = endurance;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", endurance=" + endurance +
+                '}';
+    }
+
     public Movable getTransport() {
         return transport;
     }
@@ -24,6 +39,10 @@ public class User {
             return;
         }
 
+        if (transport instanceof Bicycle) {
+            ((Bicycle) transport).setOwner(this);
+        }
+
         System.out.println("You got on " + transport);
         this.transport = transport;
     }
@@ -32,6 +51,10 @@ public class User {
         if (transport == null) {
             System.out.println("You are not in any transport");
             return;
+        }
+
+        if (transport instanceof Bicycle) {
+            ((Bicycle) transport).setOwner(null);
         }
 
         System.out.println("You got out of " + transport);
