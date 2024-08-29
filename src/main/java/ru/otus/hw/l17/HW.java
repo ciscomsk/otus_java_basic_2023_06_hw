@@ -41,11 +41,22 @@ public class HW {
     public static String getFileContent(String filename) {
         StringBuilder sb = new StringBuilder();
 
-        try (InputStreamReader isr = new InputStreamReader(new BufferedInputStream(new FileInputStream(filename)))) {
-            int ch = isr.read();
-            while (ch != -1) {
-                sb.append((char) ch);
-                ch = isr.read();
+//        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename)))) {
+//            int ch = br.read();
+//            while (ch != -1) {
+//                sb.append((char) ch);
+//                ch = br.read();
+//            }
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line = br.readLine();
+            while (line != null) {
+                sb.append(line);
+                sb.append("\n");
+                line = br.readLine();
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -55,9 +66,16 @@ public class HW {
     }
 
     public static void appendFile(String filename, String content) {
-        try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(filename, true))) {
-            byte[] bytes = content.getBytes(StandardCharsets.UTF_8);
-            bos.write(bytes);
+//        try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(filename, true))) {
+//            byte[] bytes = content.getBytes(StandardCharsets.UTF_8);
+//            bos.write(bytes);
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
+
+        try (BufferedWriter bos = new BufferedWriter(new FileWriter(filename, true))) {
+            bos.newLine();
+            bos.write(content);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
