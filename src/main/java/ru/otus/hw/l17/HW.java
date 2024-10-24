@@ -23,14 +23,13 @@ public class HW {
 
     public static List<String> getTextFiles() {
         File file = new File(".");
+//        File[] files = file.listFiles();
         File[] files = file.listFiles();
 
-        List<String> textFiles = Arrays.stream(files)
+        return Arrays.stream(files)
                 .filter(el -> el.isFile() && el.getName().endsWith(".txt"))
                 .map(File::getName)
                 .toList();
-
-        return textFiles;
     }
 
     public static String askUser(Scanner sc, String message) {
